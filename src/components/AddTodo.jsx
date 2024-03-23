@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
-function AddTodo({ onSubmit, edit  , display}) {
-  const [input, setInput] = useState(edit ? edit.value : '');
+function AddTodo({ onSubmit, edit, display }) {
+  const [input, setInput] = useState(edit ? edit.value : "");
 
-//   const inputRef = useRef(null);
+  //   const inputRef = useRef(null);
 
-//   useEffect(() => {
-//     inputRef.current.focus();
-//   });
+  //   useEffect(() => {
+  //     inputRef.current.focus();
+  //   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,18 +17,20 @@ function AddTodo({ onSubmit, edit  , display}) {
       text: input,
     });
 
-    setInput('');
+    setInput("");
 
-    if(edit){
-      display()
+    if (edit) {
+      display();
     }
   };
 
   return (
-    <form 
-      onSubmit={handleSubmit} 
+    <form
+      onSubmit={handleSubmit}
       className={`${
-        edit ? "fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" : "mb-4"
+        edit
+          ? "fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          : "mb-4"
       } flex justify-center w-full`}
     >
       <div className={`${edit ? "bg-white p-4 shadow-lg rounded-lg" : ""}`}>
@@ -41,11 +43,11 @@ function AddTodo({ onSubmit, edit  , display}) {
           className="border-2 border-gray-300 bg-white h-10 px-5 rounded-lg text-sm focus:outline-none"
           onChange={(e) => setInput(e.target.value)}
         />
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           className="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
-          {edit ? 'Update' : 'Add'}
+          {edit ? "Update" : "Add"}
         </button>
       </div>
     </form>
