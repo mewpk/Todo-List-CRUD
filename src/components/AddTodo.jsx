@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-function AddTodo({ onSubmit, edit, display }) {
+function AddTodo({ onSubmit, edit, display ,todos }) {
   const [input, setInput] = useState(edit ? edit.value : "");
 
   //   const inputRef = useRef(null);
@@ -13,7 +13,7 @@ function AddTodo({ onSubmit, edit, display }) {
     e.preventDefault();
 
     onSubmit({
-      id: edit ? edit.id : Math.floor(Math.random() * 10000),
+      id: edit ? edit.id : todos.length + 1,
       text: input,
     });
 

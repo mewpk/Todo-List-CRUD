@@ -35,7 +35,7 @@ function App() {
     <div className="container mx-auto mt-5">
       <h1 className="text-center text-4xl mb-4">Todo List</h1>
       {
-        display && <AddTodo  onSubmit={addTodo} display={toggleDisplay} />
+        display && <AddTodo todos={todos}  onSubmit={addTodo} display={toggleDisplay} />
       }
       <TodoItem display={toggleDisplay} todos={todos} removeTodo={removeTodo} updateTodo={updateTodo} />
     </div>
